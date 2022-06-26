@@ -1,3 +1,6 @@
+/**
+ * An interface defining a Supervisor
+ */
 export interface Supervisor {
     id: number;
     phone: string;

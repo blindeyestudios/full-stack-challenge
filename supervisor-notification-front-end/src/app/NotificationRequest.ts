@@ -1,3 +1,6 @@
+/**
+ * An interface defining a NotificationRequest
+ */
 export interface NotificationRequest {
     firstName: string;
     lastName: string;

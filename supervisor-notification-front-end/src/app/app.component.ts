@@ -1,7 +1,4 @@
-import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Supervisor } from './supervisor';
-import { SupervisorService } from './supervisors.service';
 
 @Component({
   selector: 'app-root',
@@ -13,12 +10,9 @@ export class AppComponent implements OnInit {
   
   title: any;
 
-  constructor() {
+  constructor() {}
 
-  }
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void {}
 
   
 }
