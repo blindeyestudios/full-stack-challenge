@@ -5,7 +5,6 @@ import com.blindeyestudios.supervisornotification.model.Supervisor;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.json.JSONTokener;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
@@ -15,6 +14,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * The service class responsible for supplying services related to supervisors
+ */
 @Service
 public class SupervisorService {
 
@@ -24,7 +26,7 @@ public class SupervisorService {
     private final String IDENTIFICATION_NUMBER = "identificationNumber";
     private final String FIRST_NAME = "firstName";
     private final String LAST_NAME = "lastName";
-
+    // This is the endpoint URL to pull supervisor data from
     private final String url = "https://o3m5qixdng.execute-api.us-east-1.amazonaws.com/api/managers";
 
     /**
@@ -32,7 +34,14 @@ public class SupervisorService {
      */
     public SupervisorService() {}
 
-
+    /**
+     * A microservice that reaches out to an endpoint, grabs JSON data about supervisors, and then
+     * manipulates the retrieved data to send back to the front-end
+     *
+     * @return
+     * @throws IOException
+     * @throws JSONException
+     */
     public List<Supervisor> getSupervisors() throws IOException, JSONException
     {
         // Initialize the list for Supervisors
@@ -118,25 +127,38 @@ public class SupervisorService {
         return false;
     }
 
+    /**
+     * A microservice that takes in a NotificationRequest and attempts to process it.
+     * The processing fails if the first name, last name, or supervisor fields are not
+     * provided
+     *
+     * @param request
+     * @return
+     */
     public RequestResult handleNotificationRequest(NotificationRequest request)
     {
+        // These are the 3 required fields.  So we get their values
         String firstName = request.getFirstName();
         String lastName = request.getLastName();
         String supervisor = request.getSupervisor();
 
+        // We make sure that the required fields are non-null and contains some non-empty String
         if (firstName == null || firstName.isEmpty() ||
                 lastName == null || lastName.isEmpty() ||
                     supervisor == null || supervisor.isEmpty())
         {
+            // If any of these checks pass, print a message to the console and return the "Missing" RequestResult
             System.out.println(request.toString());
             return RequestResult.Missing;
         }
         else
         {
+            // If none of the checks were triggered, then the submission was successful
+            // We'd normally handle the supplied data at this point, but per the challenge instructions,
+            // we print the values to the console and return that the RequestResult is "Accepted"
             System.out.println(request.toString());
             return RequestResult.Accepted;
         }
     }
-
 
 }

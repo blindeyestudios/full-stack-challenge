@@ -4,9 +4,10 @@ import java.io.Serializable;
 
 /**
  * The model class representing a Supervisor.
- * It simply contains fields corresponding to data relevant to each supervisor
+ * It contains methods for data relevant to each supervisor
  */
-public class Supervisor implements Serializable, Comparable {
+public class Supervisor implements Serializable, Comparable
+{
 
     /* Fields for supervisor data */
     private int id;
