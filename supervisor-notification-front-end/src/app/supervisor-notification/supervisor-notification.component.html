@@ -1,0 +1,43 @@
+<button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-bar-item w3-blue w3-sans-serif">Submit Notification Request</button>
+<div id="id01" class="w3-modal">
+    <div class="w3-modal-content w3-animate-zoom w3-card-4">
+      <header class="w3-container w3-blue"> 
+        <span onclick="document.getElementById('id01').style.display='none'" 
+        class="w3-button w3-display-topright">&times;</span>
+        <h2>Submit Notification Request</h2>
+      </header>
+      <div class="w3-container w3-padding-16">
+        <p>* indicates a required field</p>
+        <form id="notification-form" class="'w3-container w3-sans-serif w3-padding-16" #notificationRequestForm="ngForm" (ngSubmit)="onSubmitRequest(notificationRequestForm)">
+            <div class="w3-panel">
+                <label class="w3-text-black w3-padding-16">First Name*</label>
+                <input class="w3-input w3-border w3-round-large w3-padding-16" ngModel name="firstName" type="text">
+            </div>
+            <div class="w3-panel">
+                <label class="w3-text-black w3-padding-16">Last Name*</label>
+                <input class="w3-input w3-border w3-round-large w3-padding-16" ngModel name="lastName" type="text">
+            </div>
+            <div class="w3-panel">
+                <label class="w3-text-black w3-padding-16">Email</label>
+                <input class="w3-input w3-border w3-round-large w3-padding-16" ngModel name="email" type="text">
+            </div>
+            <div class="w3-panel">
+                <label class="w3-text-black w3-padding-16">Phone Number</label>
+                <input class="w3-input w3-border w3-round-large w3-padding-16" ngModel name="phone" type="text">
+            </div>
+            <div class="w3-panel">
+                <label class="w3-text-black w3-padding-16">Supervisor*</label>
+                <select id="supervisor-select" class="w3-select w3-border w3-round-large w3-padding-16" ngModel name="supervisor">
+                    <option *ngFor="let sup of supervisors" value="{{sup.jurisdiction}} - {{sup.lastName}}, {{sup.firstName}}">{{sup.jurisdiction}} - {{sup.lastName}}, {{sup.firstName}}</option>
+                    <option value="">--choose a supervisor--</option>
+                </select>
+            </div>
+            <p></p>
+            <button type="submit" class="w3-btn w3-round-large w3-hover-green w3-padding-16" style="font-weight: bold; background-color: rgb(255, 123, 0); color: white;">SUBMIT</button>
+        </form>
+      </div>
+      <footer class="w3-container w3-blue">
+        <p></p>
+      </footer>
+    </div>
+  </div>
