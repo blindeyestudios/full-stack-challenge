@@ -45,13 +45,13 @@ SETUP
 
   Back-end
   
-  6. Copy and paste the "supervisornotification" folder from the UNZIPPED folder into the folder     created in step #2
+  6. Copy and paste the "supervisornotification" folder from the UNZIPPED folder into the folder created in step #2
   
-  7. Open "supervisornotification" in a Java IDE.  For this example, I will walk through the steps   with Eclipse. 
+  7. Open "supervisornotification" in a Java IDE.  For this example, I will walk through the steps with Eclipse. 
   
       7a. Upon opening the folder in Eclipse, it will automatically sync and pull the External Maven libraries needed to run the application.  You may test at this point by running the application through Eclipse to confirm that it is working
       
-  8. We need to first build the jar that will run in Docker.  In Eclipse, on the "supervisornotification" folder, right-click > Run As > Maven install.  (For other IDEs, please see the respective documentation for how to build the .jar file).
+  8. We need to first build the jar that will run in Docker.  In Eclipse, on the "supervisornotification" folder, right-click > Run As > Maven install.  (For other IDEs, please see the respective documentation for how to build the .jar file.  Here is a link to IntelliJ's: https://www.jetbrains.com/help/idea/delegate-build-and-run-actions-to-maven.html#delegate_to_maven).
   
   9. You will now find that a "target" folder has been populated, in which you will find the "spring-boot-docker.jar" file that has been generated.
   
