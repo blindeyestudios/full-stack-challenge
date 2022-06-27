@@ -92,3 +92,9 @@ LAUNCH APPLICATION
 At this point, open a web browser and navigate to this url: "http://localhost"
 
 (You may need to try : http://localhost:80)
+
+
+
+HELP
+
+For any issues with Maven, help may be found here: https://maven.apache.org/install.html 
